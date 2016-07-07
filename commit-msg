@@ -1,0 +1,11 @@
+#!/bin/sh
+#
+# This hook verifies that the commit message contains a reference to a tfs item
+
+commit_regex='(BugzID: ([0-9]+)|merge)'
+error_msg="Aborting commit. Your commit message is missing either a BugzID or 'Merge'"
+
+if ! grep -iqE "$commit_regex" "$1"; then
+    echo "$error_msg" >&2
+    exit 1
+fi
