@@ -1,4 +1,4 @@
-set history=999
+set history=9999
 syntax on
 set nu
 set tabstop=4
